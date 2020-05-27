@@ -24,7 +24,7 @@ function addRandomFact() {
       'I love watching and competing in eSports competitions and leagues.'
   ];
 
-  // Pick a random movie quote.
+  // Pick a random fact about me.
   const fact = personalFacts[Math.floor(Math.random() * personalFacts.length)];
 
   // Add it to the page.
