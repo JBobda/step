@@ -1,14 +1,87 @@
 #content {
-  margin-left: auto;
-  margin-right: auto;
-  width: 650px;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  min-height: 90vh;
 }
+
+.background {
+  background-image: url('/images/crumpled_paper.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.container {
+  margin-top: 10%;
+  max-width: 60%;
+  background-color: white;
+  box-shadow: 0px 0px 15px -5px black;
+  padding: 60px;
+  border: 2px solid black;
+  border-radius: 15px;
+}
+
+#content > .container:last-child {
+  margin-bottom: 5%;
+}
+
+#content > .container:only-child {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.navbar > .tab {
+  margin-left: 0.3%;
+  margin-right: 0.3%;
+  background-color: white;
+  display: block;
+  color: black;
+  padding: 7px;
+  text-decoration: none;
+  box-shadow: 0px 0px 5px -2px black;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.navbar > .tab:hover {
+  background-color: gainsboro;
+}
+
+.navbar > .tab-selected {
+  box-shadow: 0px 0px 20px -2px black;
+}
+
+.plugs {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.icon-link {
+  text-decoration: none;
+  vertical-align: -0.5em;
+
+}
+
+.icon-link > img {
+  max-height: 5em;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
 
 #greeting-container {
   margin-top: 20px;
-}
-
-img {
-  width: 100%;
-  height: auto;
 }
