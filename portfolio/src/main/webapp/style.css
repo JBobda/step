@@ -1,3 +1,7 @@
+body {
+  font-family: sans-serif;
+}
+
 #content {
   display:flex;
   flex-direction: column;
@@ -23,6 +27,7 @@
   padding: 60px;
   border: 2px solid black;
   border-radius: 15px;
+  text-align: center;
 }
 
 #content > .container:last-child {
@@ -67,6 +72,11 @@
   justify-content: center;
   align-items: center;
   flex-direction: row;
+  padding: 2%;
+}
+
+.description {
+  text-align: start;
 }
 
 .icon-link {
@@ -76,7 +86,7 @@
 }
 
 .icon-link > img {
-  max-height: 5em;
+  max-height: 2em;
   padding-left: 1em;
   padding-right: 1em;
 }
