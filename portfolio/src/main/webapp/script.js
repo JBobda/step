@@ -31,3 +31,29 @@ function addRandomFact() {
   const factContainer = document.getElementById('fact-container');
   factContainer.innerText = fact;
 }
+
+function playRandomSportsScene() {
+  const favoriteMoments = [
+      'https://www.youtube.com/embed/a7IMPsyQg6k?origin=localhost', // Germany vs Brazil 7-1
+      'https://www.youtube.com/embed/1QJ6P8Yxil4?origin=localhost', // Germany World Cup Winning Goal
+      'https://www.youtube.com/embed/ZPCfoCVCx3U?origin=localhost', // Faker vs Ryu Duel
+      'https://www.youtube.com/embed/LOynR3gj8rE?origin=localhost', // Amazing Ping Pong Rally
+      'https://www.youtube.com/embed/9APFll-hxVY?origin=localhost' // Yugoslavia insane Volleyball play
+  ];
+
+  // Pick a random video from one of my favorite moments
+  const sportsMoment = favoriteMoments[Math.floor(Math.random() * favoriteMoments.length)];
+
+  // Creates an iframe and adds it to the DOM
+  var iframe;
+
+  iframe = document.createElement('iframe');
+  iframe.src = sportsMoment;
+  iframe.width = 720;
+  iframe.height = 480;
+
+  // Embed the video on the Page
+  const videoContainer = document.getElementById('video-container');
+  videoContainer.innerHTML = '';
+  videoContainer.appendChild(iframe);
+}
