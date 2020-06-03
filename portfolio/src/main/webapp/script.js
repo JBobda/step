@@ -57,3 +57,10 @@ function playRandomSportsScene() {
   videoContainer.innerHTML = '';
   videoContainer.appendChild(iframe);
 }
+
+async function addServletContentToDOM() {
+  const response = await fetch('/data');
+  const content = await response.json();
+  const servletContainer = document.getElementById('servlet-container');
+  servletContainer.innerHTML = content;
+}
