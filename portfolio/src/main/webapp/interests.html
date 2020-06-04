@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body class="background">
+  <body class="background" onload="loadCommentsToDOM()">
     <div class="navbar">
       <a class="tab" href="/">Home</a>
       <a class="tab" href="/about.html">About</a>
@@ -24,6 +24,18 @@
         </div>
         <p class="description">Click here to get a random one of my favorite moments in Sports/eSports:</p>
         <button onclick="playRandomSportsScene()">Play</button>
+      </div>
+      <div class="container">
+        <h3 class="description">
+          Have thoughts on how I could improve my site? Any Projects I could work on? Leave a Comment below!
+        </h3>
+        <form action="/data" method="POST" class="description">
+          <p>Please share your thoughts</p>
+          <textarea name="text-input"></textarea>
+          <br/><br/>
+          <input type="submit" />
+        </form>
+        <div id="comment-section" class="description"></div>
       </div>
     </div>
   </body>

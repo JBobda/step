@@ -58,9 +58,19 @@ function playRandomSportsScene() {
   videoContainer.appendChild(iframe);
 }
 
-async function addServletContentToDOM() {
+async function loadCommentsToDOM() {
   const response = await fetch('/data');
   const content = await response.json();
-  const servletContainer = document.getElementById('servlet-container');
-  servletContainer.innerHTML = content;
+  const servletContainer = document.getElementById('comment-section');
+
+  for(let i = 0; i < content.length; i++) {
+    servletContainer.appendChild(createParagraph(content[i]));
+  }
+}
+
+function createParagraph(text) {
+  const paragraph = document.createElement("p");
+  const node = document.createTextNode(text);
+  paragraph.appendChild(node);
+  return paragraph;
 }
