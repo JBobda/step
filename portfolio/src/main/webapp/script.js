@@ -63,7 +63,7 @@ async function loadCommentsToDOM() {
   const content = await response.json();
   const servletContainer = document.getElementById('comment-section');
 
-  for(i = 0; i < content.length; i++) {
+  for(let i = 0; i < content.length; i++) {
     servletContainer.appendChild(createParagraph(content[i]));
   }
 }
