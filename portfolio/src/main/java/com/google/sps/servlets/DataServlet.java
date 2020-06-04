@@ -26,21 +26,30 @@ import javax.servlet.http.HttpServletResponse;
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
-  private List<String> hardCodedStrings;
+  private List<String> comments;
 
   @Override
   public void init() {
-    hardCodedStrings = new ArrayList<>();
-    hardCodedStrings.add("Hello, this is a random string.");
-    hardCodedStrings.add("The weather is nice today.");
-    hardCodedStrings.add("A healthy diet leads to a healthy life.");
-    hardCodedStrings.add("Good posture when working helps prevent injuries.");
+    comments = new ArrayList<String>();
   }
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     response.setContentType("application/json");
-    String jsonResponse = convertToJson(hardCodedStrings);
+    sendCommentsToClient(response, comments);
+  }
+
+  @Override
+  public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    String comment = request.getParameter("text-input");
+    comments.add(comment);
+    response.setContentType("application/json");
+    sendCommentsToClient(response, comments);
+    response.sendRedirect("/interests.html");
+  }
+
+  private void sendCommentsToClient(HttpServletResponse response, List<String> comments) throws IOException {
+    String jsonResponse = convertToJson(comments);
     response.getWriter().println(jsonResponse); 
   }
 
