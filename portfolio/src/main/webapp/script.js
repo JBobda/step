@@ -83,12 +83,13 @@ async function deleteAllComments() {
   // Delete the comments in the datastore
   const request = new Request('/delete-data', {method: 'POST'});
   const response = await fetch(request);
-
 }
 
 function createParagraph(text) {
+  const div = document.createElement("div");
   const paragraph = document.createElement("p");
   const node = document.createTextNode(text);
   paragraph.appendChild(node);
-  return paragraph;
+  div.appendChild(paragraph);
+  return div;
 }

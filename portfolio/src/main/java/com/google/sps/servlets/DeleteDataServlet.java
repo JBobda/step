@@ -31,7 +31,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** Servlet that returns some example content. TODO: modify this file to handle comments data */
+/** Servlet that deletes the comments stored in the google cloud datastore database*/
 @WebServlet("/delete-data")
 public class DeleteDataServlet extends HttpServlet {
 
@@ -53,5 +53,4 @@ public class DeleteDataServlet extends HttpServlet {
 
     DataServlet.clearComments();
   }
-
 }

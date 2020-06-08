@@ -69,7 +69,7 @@ public class DataServlet extends HttpServlet {
   }
 
   public static void clearComments() {
-      comments = new ArrayList<String>();
+    comments = new ArrayList<String>();
   }
 
   private void storeComment(String content) {
