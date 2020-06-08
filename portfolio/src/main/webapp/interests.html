@@ -35,7 +35,14 @@
           <br/><br/>
           <input type="submit" />
         </form>
+        <label class="description" for="comment_count">Number of Comments</label>
+        <select name="comment_count" id="comment_count" onchange="loadCommentsToDOM()">
+          <option value="5" selected="selected">5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+        </select>
         <div id="comment-section" class="description"></div>
+        <button onclick="deleteAllComments()">Delete All Comments</button>
       </div>
     </div>
   </body>

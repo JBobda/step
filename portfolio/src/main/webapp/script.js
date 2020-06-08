@@ -59,18 +59,37 @@ function playRandomSportsScene() {
 }
 
 async function loadCommentsToDOM() {
-  const response = await fetch('/data');
-  const content = await response.json();
+  // Clear out previous comments
   const servletContainer = document.getElementById('comment-section');
+  servletContainer.innerHTML = '';
 
+  // Get specified number of comments
+  const selection = document.getElementById('comment_count');
+  const requestURL = '/data?comment-count=' + selection.options[selection.selectedIndex].value;
+  const response = await fetch(requestURL);
+  const content = await response.json();
+  
+  // Load comments on to the page
   for(let i = 0; i < content.length; i++) {
     servletContainer.appendChild(createParagraph(content[i]));
   }
 }
 
+async function deleteAllComments() {
+  // Clear out previous comments
+  const servletContainer = document.getElementById('comment-section');
+  servletContainer.innerHTML = '';
+
+  // Delete the comments in the datastore
+  const request = new Request('/delete-data', {method: 'POST'});
+  const response = await fetch(request);
+}
+
 function createParagraph(text) {
+  const div = document.createElement("div");
   const paragraph = document.createElement("p");
   const node = document.createTextNode(text);
   paragraph.appendChild(node);
-  return paragraph;
+  div.appendChild(paragraph);
+  return div;
 }
