@@ -32,7 +32,8 @@ import javax.servlet.http.HttpServletResponse;
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
-  private List<String> comments;
+  private static List<String> comments;
+  private int numCommentsDisplayed;
 
   @Override
   public void init() {
@@ -52,6 +53,7 @@ public class DataServlet extends HttpServlet {
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    numCommentsDisplayed = Integer.parseInt(request.getParameter("comment-count"));
     response.setContentType("application/json");
     sendCommentsToClient(response, comments);
   }
@@ -66,6 +68,10 @@ public class DataServlet extends HttpServlet {
     response.sendRedirect("/interests.html");
   }
 
+  public static void clearComments() {
+      comments = new ArrayList<String>();
+  }
+
   private void storeComment(String content) {
     Entity commentEntity = new Entity("Comment");
     commentEntity.setProperty("content", content);
@@ -74,7 +80,8 @@ public class DataServlet extends HttpServlet {
   }
 
   private void sendCommentsToClient(HttpServletResponse response, List<String> comments) throws IOException {
-    String jsonResponse = convertToJson(comments);
+    List<String> displayedComments = comments.subList(0, Math.min(numCommentsDisplayed, comments.size()));
+    String jsonResponse = convertToJson(displayedComments);
     response.getWriter().println(jsonResponse); 
   }
 
