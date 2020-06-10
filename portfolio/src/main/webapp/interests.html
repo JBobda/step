@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body class="background" onload="loadCommentsToDOM()">
+  <body class="background" onload="loadCommentsToDOM(); playRandomSportsScene();">
     <div class="navbar">
       <a class="tab" href="/">Home</a>
       <a class="tab" href="/about.html">About</a>
@@ -20,7 +20,8 @@
         <h3 class="description">
           Watch a random one of my favorite Sports/eSports moments of all time.
         </h3>
-        <div id="video-container">
+        <div class="media-container" id="video-container">
+          <iframe id="video" class="media" ></iframe>
         </div>
         <p class="description">Click here to get a random one of my favorite moments in Sports/eSports:</p>
         <button onclick="playRandomSportsScene()">Play</button>
