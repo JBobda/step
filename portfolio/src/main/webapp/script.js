@@ -100,6 +100,11 @@ async function deleteAllComments() {
   const response = await fetch(request);
 }
 
+function onloadInterests() {
+  loadCommentsToDOM();
+  playRandomSportsScene();
+}
+
 function createParagraph(text) {
   const div = document.createElement("div");
   const paragraph = document.createElement("p");
