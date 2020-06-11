@@ -12,6 +12,30 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+google.charts.load("current", {packages:["corechart"]});
+google.charts.setOnLoadCallback(drawChart);
+
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+    ['Task', 'Hours per Day'],
+    ['Work',     8],
+    ['Eat',      2],
+    ['Playing Video Games',  4],
+    ['Family Time', 3],
+    ['Sleep',    7]
+  ]);
+
+  var options = {
+    title: 'A Day in my Life during the Pandemic',
+    width: '100%',
+    height: 300,
+    pieHole: 0.2,
+  };
+
+  var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+  chart.draw(data, options);
+}
+
 /**
  * Adds a random greeting to the page.
  */
@@ -45,17 +69,8 @@ function playRandomSportsScene() {
   const sportsMoment = favoriteMoments[Math.floor(Math.random() * favoriteMoments.length)];
 
   // Creates an iframe and adds it to the DOM
-  var iframe;
-
-  iframe = document.createElement('iframe');
+  let iframe = document.getElementById('video');
   iframe.src = sportsMoment;
-  iframe.width = 720;
-  iframe.height = 480;
-
-  // Embed the video on the Page
-  const videoContainer = document.getElementById('video-container');
-  videoContainer.innerHTML = '';
-  videoContainer.appendChild(iframe);
 }
 
 async function loadCommentsToDOM() {
@@ -83,6 +98,11 @@ async function deleteAllComments() {
   // Delete the comments in the datastore
   const request = new Request('/delete-data', {method: 'POST'});
   const response = await fetch(request);
+}
+
+function onloadInterests() {
+  loadCommentsToDOM();
+  playRandomSportsScene();
 }
 
 function createParagraph(text) {
