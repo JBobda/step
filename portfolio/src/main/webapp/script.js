@@ -26,7 +26,6 @@ function drawChart() {
   ]);
 
   var options = {
-    title: 'A Day in my Life during the Pandemic',
     width: '100%',
     height: 300,
     pieHole: 0.2,
@@ -98,6 +97,48 @@ async function deleteAllComments() {
   // Delete the comments in the datastore
   const request = new Request('/delete-data', {method: 'POST'});
   const response = await fetch(request);
+}
+
+function createMap() {
+  // Center the Map around the University of Arkansas (36.068275,-94.173127,15)
+  const map = new google.maps.Map(
+    document.getElementById('map'),
+    {center: {lat: 36.068275, lng: -94.173127}, zoom: 15});
+  const hugos_marker = new google.maps.Marker({position: {lat: 36.062620, lng: -94.160650}, map: map, title: 'Hugo\'s Burger Restaurant'});
+  const wilson_marker = new google.maps.Marker({position: {lat: 36.073002, lng: -94.163239}, map: map, title: 'Wilson Park'});
+  const walton_marker = new google.maps.Marker({position: {lat: 36.060619, lng: -94.178452}, map: map, title: 'Bud Walton Arena'});
+  const eng_marker = new google.maps.Marker({position: {lat: 36.065970, lng: -94.173780}, map: map, title: 'University of Arkansas CS Dept.'});
+
+  const hugos_content = '<h1>Hugo\s Burger Restaurant</h1>' +
+                        '<p class="description">Hugo\'s is a speakeasy still burger restaurant that is literally situated in an underground location. One of my favorite restaurants in town.</p>';
+  addInfoWindowToMarker(hugos_content, hugos_marker, map);
+
+  const wilson_content = '<h1>Wilson Park</h1>' +
+                         '<img src="/images/soccer_wilson_park.jpg" style="width: 50%"></img>' +
+                         '<p class="description">Wilson Park is a great place to play intramural sports or just hang out and play volleyball with Friends.' +
+                         'I come here pretty often to play Intramural Soccer or just to run when trying to get back in shape.</p>';
+  addInfoWindowToMarker(wilson_content, wilson_marker, map);
+
+  const walton_content = '<h1>Bud Walton Arena</h1>' +
+                         '<p class="description">Bud Walton Arena is the biggest Basketball Arena in the city and lot\'s of events are held here from University and High School Graduation,' +
+                         ' to Career Fairs and other private events.</p>';
+  addInfoWindowToMarker(walton_content, walton_marker, map);
+
+  const eng_content = '<h1>University of Arkansas CS Dept.</h1>' +
+                         '<img src="/images/hackathon_win.jpg" style="width: 50%"></img>' +
+                         '<p class="description">Most of my classes are held here and lot\'s of Computer Science related events are held here' +
+                         'The picture was taken after we won a hackathon that was being hosted in the building.</p>';
+  addInfoWindowToMarker(eng_content, eng_marker, map);
+}
+
+function addInfoWindowToMarker(contentString, marker, map) {
+  var infowindow = new google.maps.InfoWindow({
+    content: contentString
+  });
+
+  marker.addListener('click', function() {
+    infowindow.open(map, marker);
+  });
 }
 
 function onloadInterests() {

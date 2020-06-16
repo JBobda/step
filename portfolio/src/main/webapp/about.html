@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnKQkxcjFRrPjY6EZcFkhVsHkQKbRtyuM"></script>
     <script src="script.js"></script>
   </head>
-  <body class="background">
+  <body class="background" onload="createMap();">
     <div class="navbar">
       <a class="tab" href="/">Home</a>
       <a class="tab tab-selected" href="#">About</a>
@@ -26,8 +27,19 @@
           I also love just hanging out with friends on a weekend and playing our favorite video games such as Super Smash Brothers or League of Legends.
         </p>
       </div>
-      <div class="container">
+      <div class="container-column">
+        <h3>A Day in my Life During the Pandemic</h3>
         <div class="chart" id="donutchart"></div>
+      </div>
+      <div class="container">
+        <h3>Cool places around my College</h3>
+        <div id="map"></div>
+      </div>
+      <div class="container-column">
+        <h3>Songs from one of my favorite bands</h3>
+        <div class="media-container">
+          <iframe src="https://open.spotify.com/embed/artist/5fbhwqYYh4YwUoEs582mq5" class="media" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </div>
       </div>
     </div>
   </body>
