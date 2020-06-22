@@ -152,5 +152,6 @@ function createParagraph(text) {
   const node = document.createTextNode(text);
   paragraph.appendChild(node);
   div.appendChild(paragraph);
+  div.classList.add("comment");
   return div;
 }

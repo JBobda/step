@@ -23,8 +23,8 @@
         <div class="media-container" id="video-container">
           <iframe id="video" class="media" ></iframe>
         </div>
-        <p class="description">Click here to get a random one of my favorite moments in Sports/eSports:</p>
-        <button onclick="playRandomSportsScene()">Play</button>
+        <p>Click here to get a random one of my favorite moments in Sports/eSports:</p>
+        <button class="button" onclick="playRandomSportsScene()">Get Random Highlight</button>
       </div>
       <div class="container">
         <h3 class="description">
@@ -32,9 +32,9 @@
         </h3>
         <form action="/data" method="POST" class="description">
           <p>Please share your thoughts</p>
-          <textarea name="text-input"></textarea>
+          <input name="text-input" type="text" class="text-input"></input>
           <br/><br/>
-          <input type="submit" />
+          <input class="button" type="submit" />
         </form>
         <label class="description" for="comment_count">Number of Comments</label>
         <select name="comment_count" id="comment_count" onchange="loadCommentsToDOM()">
@@ -42,8 +42,8 @@
           <option value="10">10</option>
           <option value="15">15</option>
         </select>
-        <div id="comment-section" class="description"></div>
-        <button onclick="deleteAllComments()">Delete All Comments</button>
+        <div id="comment-section" class="comment-section"></div>
+        <button class="button" onclick="deleteAllComments()">Delete All Comments</button>
       </div>
     </div>
   </body>

@@ -31,6 +31,19 @@ body {
   text-align: center;
 }
 
+.button {
+  background-color: rgb(9, 113, 161);
+  color: white;
+  border: none;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  border-radius: 8px;
+  padding: 10px 24px;
+}
+
 .container-column {
   margin-top: 10%;
   width: 70%;
@@ -92,6 +105,17 @@ img.proj {
   padding-top: 56.25%;
 }
 
+.comment {
+  border-bottom-style: solid;
+  border-width: 3px;
+  border-color: rgb(9, 113, 161);
+}
+
+.comment-section {
+  text-align: start;
+  margin-bottom: 10px;
+}
+
 .media {
   position: absolute;
   top: 0;
@@ -127,6 +151,27 @@ img.proj {
   max-height: 2em;
   padding-left: 1em;
   padding-right: 1em;
+}
+
+select {
+  padding: 16px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+}
+
+.text-input {
+  width:100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  background-color: #f8f8f8;
+  border-radius: 4px;
+}
+
+.fact-container {
+  margin-top: 10px;
 }
 
 #map {
